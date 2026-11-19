@@ -1,7 +1,6 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-
 import peritoRoutes from "./src/routes/peritoRoutes.js";
 import { initializeDatabase } from "./src/models/index.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
@@ -36,6 +35,7 @@ const iniciarServidor = async () => {
 
         app.listen(PORT, () => {
             console.log(`Servidor funcionando en puerto ${PORT}`);
+            console.log(`API de peritos: http://localhost:${PORT}/api/v1/peritos`);
         });
 
     } catch (error) {

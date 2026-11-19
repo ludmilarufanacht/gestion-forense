@@ -2,6 +2,7 @@
 import sequelize from "../config/database.js";
 import Role from "./role.js";
 import User from "./user.js";
+import AuditLog from "./auditLog.js";
 
 
 export async function initializeDatabase() {
@@ -67,4 +68,4 @@ User.belongsTo(Role, {
     as: "role"
 });
 
-export { sequelize, Role, User };
+export { sequelize, Role, User, AuditLog };

@@ -1,2 +1,4 @@
 node_modules/
 .env
+forensics.db.bak
+forensics.db.corrupt

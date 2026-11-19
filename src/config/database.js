@@ -15,6 +15,17 @@ if (dialect === "sqlite") {
         logging: false
     });
 } else if (dialect === "postgres") {
+    const requiredVariables = ["DB_NAME", "DB_USER", "DB_PASSWORD", "DB_HOST"];
+    const missingVariables = requiredVariables.filter(
+        (variable) => !process.env[variable]
+    );
+
+    if (missingVariables.length > 0) {
+        throw new Error(
+            `Faltan variables de PostgreSQL: ${missingVariables.join(", ")}`
+        );
+    }
+
     sequelize = new Sequelize(
         process.env.DB_NAME,
         process.env.DB_USER,
